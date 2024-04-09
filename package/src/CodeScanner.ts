@@ -45,6 +45,10 @@ export interface Code {
    */
   value?: string
   /**
+   * The raw bytes, or null if it cannot be decoded.
+   */
+  rawBytes?: number[]
+  /**
    * The location of the code relative to the Camera Preview (in dp).
    */
   frame?: {
