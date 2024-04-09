@@ -91,6 +91,15 @@ fun CameraView.invokeOnCodeScanned(barcodes: List<Barcode>, scannerFrame: CodeSc
       }
       code.putArray("corners", corners)
     }
+
+    barcode.rawBytes?.let { rawBytes ->
+      val bytes = Arguments.createArray()
+      rawBytes.forEach { byte ->
+        bytes.pushInt(byte.toInt())
+      }
+      code.putArray("rawBytes", bytes)
+    }
+
     codes.pushMap(code)
   }
 
